@@ -1,0 +1,19 @@
+{
+  "name": "deal_or_no_deal",
+  "version": "1.0.0",
+  "description": "Deal or No Deal game made in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobby-saul/deal_or_no_deal.git"
+  },
+  "author": "bobby-saul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobby-saul/deal_or_no_deal/issues"
+  },
+  "homepage": "https://github.com/bobby-saul/deal_or_no_deal#readme"
+}
