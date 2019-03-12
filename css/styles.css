@@ -1,7 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #a0a0a0;
+    font-size: 18px;
+}
+
+.heading {
+    text-align: center;
+    padding: 1em;
+}
+
+.game {
+    max-width: 70em;
+    margin: auto;
+    font-size: 1em;
+}
+
+button {
+    background-color: #ffffff;
+    border: 1px solid #555555;
+    color: #a0a0a0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding: 0.5em 1.5em;
+    margin: 0.25em;
+    font-size: 1em;
+}
+button:hover,
+button:focus {
+    background-color: #dddddd;
+}
 .clicked {
+    background-color: #555555;
+    cursor: unset;
+}
+.clicked:hover,
+.clicked:focus {
     background-color: #555555;
 }
 
+.content {
+    text-align: center;
+    padding: 1em;
+    display: block;
+}
+.content-left {
+    display: block;
+    flex: 1
+}
+.content-right {
+    display: block;
+    flex: 2;
+    padding: 1em;
+}
+
+.scoreboard-left,
+.scoreboard-right {
+    display: inline-block;
+    width: 50%;
+}
+.scoreboard-value {
+    border: 1px solid #a0a0a0;
+    background-color: #eae662;
+    color: #000000;
+    padding: 0.5em 1em;
+}
 .eliminated {
-    background: #333333;
+    background: #555555;
+    color: #a0a0a0;
+}
+
+.boxes {
+    margin: 1em;
+}
+
+.current-offer,
+.old-offers {
+    margin: 1em;
+}
+.previous-offers div {
+    margin: 0.5em;
+}
+
+@media (min-width: 50em) {
+    .content {
+        display: flex;
+    }
 }

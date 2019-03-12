@@ -17,9 +17,13 @@
 			var boxesLeft = [];
 
 			// build scoreboad
-			$(".scoreboard").html("");
-			boxes.forEach(function (value) {
-				$(".scoreboard").append("<div class='scoreboard-value' data-value='" + value + "'>$" + value + "</div>");
+			$(".scoreboard").html("<div class='scoreboard-left'></div><div class='scoreboard-right'></div>");
+			boxes.forEach(function (value, index) {
+				if (index > 12) {
+					$(".scoreboard-right").append("<div class='scoreboard-value' data-value='" + value + "'>$" + value.toLocaleString("en") + "</div>");
+				} else {
+					$(".scoreboard-left").append("<div class='scoreboard-value' data-value='" + value + "'>$" + value.toLocaleString("en") + "</div>");
+				}
 			});
 
 			// randomize boxes
@@ -51,28 +55,30 @@
 			});
 			average = average/(boxesLeft.length - boxesGone);
 			currentOffer = Math.floor(average);
-			$(".current-offer-value").text("$" + currentOffer);
+			dialogElem.html("Deal or no deal?");
+			$(".current-offer-value").text("$" + currentOffer.toLocaleString("en"));
 
 			// remove disable class
 			$(".offers").removeClass("disable");
 
 			// offer buttons
-			if (round < 10) {
-				$("button.deal").on("click", function() {
-					$(".offer-button").off("click");
-					alert("Game over! You won $" + currentOffer + " Your case had $" + boxesLeft[chosenBox]);
-					playGame();
-				});
-				$("button.no-deal").on("click", function() {
-					$(".offer-button").off("click");
-					$(".previous-offers").prepend("<div>$" + currentOffer + "</div>");
-					round = round + 1;
-					playRound(round);
-				});
-			} else {
-				alert("Game over! You won: $" + boxesLeft[chosenBox]);
-				playGame();
-			}
+			$("button.deal").on("click", function() {
+				$(".offer-button").off("click");
+				dialogElem.html("Game over! You won $" + currentOffer.toLocaleString("en") + " Your case had $" + boxesLeft[chosenBox].toLocaleString("en") + "<br><button class='start-game'>Play again</button>");
+				$(".start-game").on("click", playGame);
+			});
+			$("button.no-deal").on("click", function() {
+				$(".offer-button").off("click");
+				$(".current-offer-value").text("---");
+				$(".previous-offers").prepend("<div>$" + currentOffer.toLocaleString("en") + "</div>");
+				round = round + 1;
+				if (round > 9) {
+					dialogElem.html("Game over! You won: $" + boxesLeft[chosenBox].toLocaleString("en") + "<br><button class='start-game'>Play again</button>");
+					$(".start-game").on("click", playGame);
+				} else {
+					playRound();
+				}	
+			});
 		}
 
 		function playRound() {
@@ -117,7 +123,7 @@
 				$("button.box-item").off("click");
 
 				// play round
-				round = round + 1;
+				round = 1;
 				playRound();
 			});
 		}
@@ -129,8 +135,9 @@
 			// build game
 			boxesLeft = buildGame();
 
-			// clear previous offers
+			// clear text
 			$(".previous-offers").html("");
+			$(".round").text("");
 
 			// get chosen box
 			getBox();
