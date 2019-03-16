@@ -2,6 +2,7 @@
 
 <head>
     <title>Deal or No Deal</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/app.js"></script>
@@ -19,24 +20,25 @@
                 <div class="scoreboard"></div>
             </div>
             <div class="content-right">
-                <div class="dialog"></div>
                 <div class="boxes">
                         <button class="start-game">Start</button>
                 </div>
+                <div class="dialog"></div>
                 <div class="offers disable">
                     <div class="current-offer">
                         <span>Current Offer:</span>
                         <span class="current-offer-value"></span>
                     </div>
                     <div class="buttons">
-                        <button class="deal offer-button">Deal</button>
-                        <button class="no-deal offer-button">No Deal</button>
+                        <button class="deal offer-button disabled">Deal</button>
+                        <button class="no-deal offer-button disabled">No Deal</button>
                     </div>
                     <div class="old-offers">
                         <div>Previous offers:</div>
                         <div class="previous-offers"></div>
                     </div>
                 </div>
+                <button class="view-stats">View Stats</button>
             </div>
         </div>
     </div>

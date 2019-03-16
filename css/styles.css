@@ -1,8 +1,13 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
     color: #a0a0a0;
     font-size: 18px;
+    position: relative;
 }
 
 .heading {
@@ -19,6 +24,7 @@ body {
 button {
     background-color: #ffffff;
     border: 1px solid #555555;
+    border-radius: 5px;
     color: #a0a0a0;
     -webkit-appearance: none;
     cursor: pointer;
@@ -28,11 +34,16 @@ button {
 }
 button:hover,
 button:focus {
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+.disabled {
+    cursor: not-allowed;
     background-color: #dddddd;
 }
 .clicked {
     background-color: #555555;
     cursor: unset;
+    pointer-events: none;
 }
 .clicked:hover,
 .clicked:focus {
@@ -79,6 +90,41 @@ button:focus {
     margin: 1em;
 }
 .previous-offers div {
+    margin: 0.5em;
+}
+
+.open-modal {
+    overflow: hidden;
+}
+.open-modal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.modal {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background: white;
+    right: 0;
+    margin: 2em;
+    height: calc(100vh - 6em);
+    padding: 1em;
+    text-align: center;
+    border-radius: 5px;
+    overflow: auto;
+}
+ol {
+    list-style-position: inside;
+    padding: 0;
+}
+.average {
     margin: 0.5em;
 }
 
