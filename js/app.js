@@ -35,10 +35,10 @@
 				totalGames = totalGames + 1;
 			}
 
-			document.cookie = "topFive=" + encodeURIComponent(topFive.join()) + ";expire=" + expireDate.toUTCString() + ";";
-			document.cookie = "lastFive=" + encodeURIComponent(lastFive.join()) + ";expire=" + expireDate.toUTCString() + ";";
-			document.cookie = "totalScore=" + encodeURIComponent(totalScore) + ";expire=" + expireDate.toUTCString() + ";";
-			document.cookie = "totalGames=" + encodeURIComponent(totalGames) + ";expire=" + expireDate.toUTCString() + ";";
+			document.cookie = "topFive=" + encodeURIComponent(topFive.join()) + ";expires=" + expireDate.toUTCString() + ";";
+			document.cookie = "lastFive=" + encodeURIComponent(lastFive.join()) + ";expires=" + expireDate.toUTCString() + ";";
+			document.cookie = "totalScore=" + encodeURIComponent(totalScore) + ";expires=" + expireDate.toUTCString() + ";";
+			document.cookie = "totalGames=" + encodeURIComponent(totalGames) + ";expires=" + expireDate.toUTCString() + ";";
 		}
 
 		function getCookies() {
